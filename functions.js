@@ -1,21 +1,12 @@
 const file_save = require('fs');
-var http = require('http');
 var open = require('open');
-
-//FUNCIÓN PARA CREAR EL ARCHIVO DE TEXTO
-function createFile (texto_archivo, nombre_archivo) {
-    file_save.writeFile(nombre_archivo, texto_archivo, (err) =>{
-        if (err) throw (err);
-        console.log('Se ha creado correctamente el archivo')
-    });
-
-}
+var express = require('express')
+var app = express()
 
 //FUNCIÓN PARA CREAR EL SITIO WEB
 function init_server (text_web){
-    function onRequest(request, response) {
-        response.writeHead(200, {"Content-Type": "text/html"});
-        response.write(
+    app.get('/', function(request, response){
+        response.send(
             '<!DOCTYPE html>'+
                 '<html lang="es">'+
                     '<head>'+
@@ -26,15 +17,21 @@ function init_server (text_web){
                         text_web + 
                     '</body>'+
                 '</html>'
-        );
-        response.end();
-    }
-        
-    var server = http.createServer(onRequest);
-    server.listen(8080);
-    
+            );
+    })
+    app.listen(8080);
+
     console.log("Servidor funcionando en http://localhost:8080/");
     open('http://localhost:8080');
+}
+
+//FUNCIÓN PARA CREAR EL ARCHIVO DE TEXTO
+function createFile (texto_archivo, nombre_archivo) {
+    file_save.writeFile(nombre_archivo, texto_archivo, (err) =>{
+        if (err) throw (err);
+        console.log('Se ha creado correctamente el archivo')
+    });
+
 }
 
 module.exports = {

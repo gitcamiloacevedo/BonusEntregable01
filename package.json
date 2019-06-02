@@ -5,9 +5,8 @@
   "main": "entrega_01_bonus.js",
   "dependencies": {
     "open": "^6.3.0",
-    "opener": "^1.5.1",
-    "yargs": "^13.2.4",
-    "yars": "^1.2.0"
+    "express": "^4.17.1",
+    "yargs": "^13.2.4"
   },
   "devDependencies": {},
   "scripts": {
@@ -18,5 +17,9 @@
     "url": "git+https://github.com/gitcamiloacevedo/BonusEntregable01.git"
   },
   "author": "Juan Camilo Acevedo Bedoya",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gitcamiloacevedo/BonusEntregable01/issues"
+  },
+  "homepage": "https://github.com/gitcamiloacevedo/BonusEntregable01#readme"
 }
